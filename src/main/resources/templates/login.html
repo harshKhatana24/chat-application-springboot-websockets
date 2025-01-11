@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+      xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>login-page</title>
+</head>
+
+<body>
+
+<div id="content">
+    <div class="grid grid-cols-12 py-4">
+        <!--        4 + 4(main div) + 4-->
+        <div class="col-span-4 md:col-span-2 lg:col-span-3 xl:col-span-4"></div>
+        <div class=" col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4">
+
+            <!--      6 ki space le rhi hai-->
+
+
+
+            <!--      card-->
+            <div class="border-t-[10px] border-black dark:border-blue-600 p-6 bg-white rounded-[12px] shadow dark:bg-gray-800 ">
+
+                <h1 class="py-4 px-6 text-3xl font-extrabold text-center text-gray-900 dark:text-white">
+                    <span class="underline decoration-blue-500 decoration-4 underline-offset-8">
+                        Login Here
+                    </span>
+                </h1>
+
+
+                <div class="py-2 text-red-600 text-center" th:if="${param.error}">Invalid username or password.</div>
+                <div class="py-2 text-green-600 text-center" th:if="${param.logout}">You have been logged out.</div>
+
+
+                <form
+
+                   method="post"
+                   data-th-action="@{'/authenticate'}"
+                    class="py-8 max-w-sm mx-auto"
+                   novalidate
+                >
+
+
+
+                    <div class="mb-5">
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+
+                        <input
+                                name="email"
+                                type="email"
+                               id="email"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="enter email here" required />
+                    </div>
+
+
+
+                    <div class="mb-5">
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >Your password</label>
+
+                        <input
+                                name="password"
+                                type="password"
+                                id="password"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="enter password here" required />
+                    </div>
+
+
+
+                    <div class="flex items-start mb-5">
+                        <div class="flex items-center h-5">
+                            <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required />
+                        </div>
+                        <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
+                    </div>
+
+                    <div class="flex justify-center gap-4">
+                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
+
+                        <a
+                                href="/register"
+                                class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Signup</a>
+
+                    </div>
+                </form>
+
+
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    console.log("login-page")
+</script>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
